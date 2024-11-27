@@ -4,6 +4,7 @@ import Panel from "../../../atoms/common/panel";
 import QuestionBodyEditor from "../../../molecules/edit/questionBodyEditor";
 import QuestionHeaderEditor from "../../../molecules/edit/questionHeaderEditor";
 import SectionTitleEditor from "../../../molecules/edit/sectionTitleEditor";
+import EditMenu from "../../../atoms/edit/editMenu";
 
 const SectionEditorList = observer(() => {
   const surveyStore = useSurveyStore();
@@ -11,12 +12,11 @@ const SectionEditorList = observer(() => {
   return (
     <div>
       <div className={"relative"}>
-        <button
-          className={"absolute top-0 -right-50"}
-          onClick={() => surveyStore.addQuestion()}
-        >
-          +
-        </button>
+        <EditMenu
+          className={
+            "fixed bottom-30 left-[calc(100%-72px)] sm:bottom-auto sm:top-[calc(55px+184px+24px)] sm:left-[calc(50%+(655px/2)+12px)]"
+          }
+        />
       </div>
 
       {surveyStore.sections.map((section) => (

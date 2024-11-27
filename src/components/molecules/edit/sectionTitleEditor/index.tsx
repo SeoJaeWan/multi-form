@@ -1,4 +1,3 @@
-import { ChangeEvent } from "react";
 import Section from "../../../../models/section";
 import Input from "../../../atoms/common/input";
 import Panel, { PanelCap } from "../../../atoms/common/panel";
