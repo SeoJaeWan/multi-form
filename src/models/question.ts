@@ -58,6 +58,7 @@ class Question implements QuestionData {
   }
 
   setRequired(required: boolean) {
+    console.log(required);
     this.required = required;
   }
 

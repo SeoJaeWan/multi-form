@@ -5,6 +5,7 @@ import QuestionBodyEditor from "../../../molecules/edit/questionBodyEditor";
 import QuestionHeaderEditor from "../../../molecules/edit/questionHeaderEditor";
 import SectionTitleEditor from "../../../molecules/edit/sectionTitleEditor";
 import EditMenu from "../../../atoms/edit/editMenu";
+import QuestionFooterEditor from "../../../molecules/edit/questionFooterEditor";
 
 const SectionEditorList = observer(() => {
   const surveyStore = useSurveyStore();
@@ -32,6 +33,15 @@ const SectionEditorList = observer(() => {
                 <Panel.Body>
                   <QuestionBodyEditor type={question.type} />
                 </Panel.Body>
+
+                <Panel.Footer>
+                  <QuestionFooterEditor
+                    question={question}
+                    //
+                    onCopy={section.copyQuestion}
+                    onRemove={section.removeQuestion}
+                  />
+                </Panel.Footer>
               </Panel>
             ))}
           </div>

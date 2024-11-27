@@ -48,7 +48,7 @@ const PanelFooter = (props: PropsWithChildren<Cn>) => {
   return (
     <>
       <br className={"mb-20 border-gray100 "} />
-      <footer className={className}>{children}</footer>;
+      <footer className={className}>{children}</footer>
     </>
   );
 };
