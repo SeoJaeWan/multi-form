@@ -37,6 +37,7 @@ const useDropDown = <T,>() => {
 };
 
 interface DropDownProps<T> {
+  defaultValue?: T;
   options: DropDownOption<T>[];
   placeholder?: string;
   //
@@ -45,13 +46,18 @@ interface DropDownProps<T> {
 
 const DropDown = <T,>(props: DropDownProps<T>) => {
   const {
+    defaultValue,
     options,
     placeholder,
     //
     onChange,
   } = props;
   const [opened, setOpened] = useState(false);
-  const [selected, setSelected] = useState(-1);
+  const [selected, setSelected] = useState(
+    defaultValue
+      ? options.findIndex((option) => option.value === defaultValue)
+      : -1
+  );
 
   const open = useCallback(() => setOpened(true), []);
   const close = useCallback(() => setOpened(false), []);
@@ -146,7 +152,7 @@ const DropDownMenu = () => {
   return opened ? (
     <div
       className={
-        "absolute left-0 top-62 border border-gray300 rounded-10 flex flex-col min-w-197 bg-white"
+        "absolute left-0 top-62 z-10 border border-gray300 rounded-10 flex flex-col min-w-197 bg-white"
       }
     >
       {options.map((option, index) => (

@@ -1,7 +1,12 @@
 import Home from "./pages/home";
+import { SurveyStoreProvider } from "./store";
 
 function App() {
-  return <Home />;
+  return (
+    <SurveyStoreProvider>
+      <Home />
+    </SurveyStoreProvider>
+  );
 }
 
 export default App;
