@@ -3,6 +3,7 @@ import { useSurveyStore } from "../../../../store";
 import Panel from "../../../atoms/common/panel";
 import QuestionBodyEditor from "../../../molecules/edit/questionBodyEditor";
 import QuestionHeaderEditor from "../../../molecules/edit/questionHeaderEditor";
+import SectionTitleEditor from "../../../molecules/edit/sectionTitleEditor";
 
 const SectionEditorList = observer(() => {
   const surveyStore = useSurveyStore();
@@ -19,10 +20,11 @@ const SectionEditorList = observer(() => {
       </div>
 
       {surveyStore.sections.map((section) => (
-        <div className={"relative"}>
-          <div>
+        <div className={"relative"} key={section.id}>
+          <div className={"[&>*]:mb-24"}>
+            <SectionTitleEditor section={section} capTitle={"2개 중 1섹션"} />
             {section.questions.map((question) => (
-              <Panel>
+              <Panel key={question.id}>
                 <Panel.Header>
                   <QuestionHeaderEditor question={question} />
                 </Panel.Header>

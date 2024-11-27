@@ -13,7 +13,7 @@ const Panel = (props: PropsWithChildren<Cn>) => {
   );
 };
 
-const PanelCap = (props: PropsWithChildren) => {
+export const PanelCap = (props: PropsWithChildren) => {
   const { children } = props;
 
   return (
@@ -53,7 +53,6 @@ const PanelFooter = (props: PropsWithChildren<Cn>) => {
   );
 };
 
-Panel.Cap = PanelCap;
 Panel.Header = PanelHeader;
 Panel.Body = PanelBody;
 Panel.Footer = PanelFooter;
