@@ -14,10 +14,10 @@ const EditMenu = (props: Cn) => {
         className
       )}
     >
-      <button className={""} onClick={() => surveyStore.addQuestion()}>
+      <button className={""} onClick={surveyStore.addQuestion}>
         <PlusIcon />
       </button>
-      <button className={""} onClick={() => surveyStore.addSection()}>
+      <button className={""} onClick={surveyStore.addSection}>
         <SectionPlusIcon />
       </button>
     </div>

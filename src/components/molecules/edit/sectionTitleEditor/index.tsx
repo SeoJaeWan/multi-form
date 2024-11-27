@@ -11,6 +11,12 @@ interface SectionTitleEditorProps {
 const SectionTitleEditor = observer((props: SectionTitleEditorProps) => {
   const { section, capTitle } = props;
 
+  const handleChangeValue =
+    (onChange: (value: string) => void) =>
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      onChange(e.target.value);
+    };
+
   return (
     <div>
       <PanelCap>{capTitle}</PanelCap>
@@ -19,12 +25,12 @@ const SectionTitleEditor = observer((props: SectionTitleEditorProps) => {
           <Input
             className={"mb-17 text-24 text-gray900 font-semibold py-8"}
             value={section.title}
-            onChange={(e) => section.setTitle(e.target.value)}
+            onChange={handleChangeValue(section.setTitle)}
           />
           <Input
             className={"text-16 text-gray700 py-3"}
             value={section.description}
-            onChange={(e) => section.setDescription(e.target.value)}
+            onChange={handleChangeValue(section.setDescription)}
           />
         </Panel.Body>
       </Panel>

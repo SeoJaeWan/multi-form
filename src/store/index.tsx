@@ -8,7 +8,13 @@ class Store {
   focusedSectionId: number | null = null;
 
   constructor() {
-    makeAutoObservable(this);
+    makeAutoObservable(
+      this,
+      {},
+      {
+        autoBind: true,
+      }
+    );
 
     this.sections = [new Section()];
     this.focusedSectionId = this.sections[0].id;
