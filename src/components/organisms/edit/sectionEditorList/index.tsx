@@ -10,6 +10,10 @@ import QuestionFooterEditor from "../../../molecules/edit/questionFooterEditor";
 const SectionEditorList = observer(() => {
   const surveyStore = useSurveyStore();
 
+  const handleClickContainer = (id: number) => {
+    surveyStore.setFocusedSectionId(id);
+  };
+
   return (
     <div>
       <div className={"relative"}>
@@ -20,12 +24,24 @@ const SectionEditorList = observer(() => {
         />
       </div>
 
-      {surveyStore.sections.map((section) => (
-        <div className={"relative"} key={section.id}>
+      {surveyStore.sections.map((section, index) => (
+        <div
+          className={"relative"}
+          key={section.id}
+          onClick={() => handleClickContainer(section.id)}
+        >
           <div className={"[&>*]:mb-24"}>
-            <SectionTitleEditor section={section} capTitle={"2개 중 1섹션"} />
+            <SectionTitleEditor
+              section={section}
+              capTitle={`${surveyStore.sections.length}개 중 ${index + 1}섹션`}
+            />
             {section.questions.map((question) => (
-              <Panel key={question.id}>
+              <Panel
+                key={question.id}
+                className={
+                  "border-l-10 border-l-transparent focus-within:border-l-main"
+                }
+              >
                 <Panel.Header>
                   <QuestionHeaderEditor question={question} />
                 </Panel.Header>

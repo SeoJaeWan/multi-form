@@ -9,17 +9,22 @@ import Input from "../../../atoms/common/input";
 import DropDown from "../../../atoms/common/dropdown";
 import { QuestionType } from "../../../../types/app";
 import Question from "../../../../models/question";
+import { observer } from "mobx-react-lite";
 
 interface QuestionHeaderEditorProps {
   question: Question;
 }
 
-const QuestionHeaderEditor = (props: QuestionHeaderEditorProps) => {
+const QuestionHeaderEditor = observer((props: QuestionHeaderEditorProps) => {
   const { question } = props;
 
   return (
     <div className={"flex mb-25"}>
-      <Input className={"flex-1 mr-30"} />
+      <Input
+        className={"flex-1 mr-30"}
+        value={question.title}
+        onChange={(e) => question.setTitle(e.target.value)}
+      />
       <DropDown<QuestionType>
         defaultValue={question.type}
         onChange={(value) => question.setType(value)}
@@ -91,6 +96,6 @@ const QuestionHeaderEditor = (props: QuestionHeaderEditorProps) => {
       />
     </div>
   );
-};
+});
 
 export default QuestionHeaderEditor;

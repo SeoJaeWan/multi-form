@@ -20,6 +20,10 @@ class Store {
     this.focusedSectionId = this.sections[0].id;
   }
 
+  setFocusedSectionId(id: number) {
+    this.focusedSectionId = id;
+  }
+
   addSection() {
     const newSection = new Section();
     this.sections.push(newSection);
