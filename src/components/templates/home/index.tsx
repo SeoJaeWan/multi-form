@@ -1,7 +1,13 @@
-import DropDown from "../../atoms/home/dropdown";
-import Layout from "../../atoms/home/layout";
-import Panel, { PanelCap, PanelHeader } from "../../atoms/home/panel";
-import Tabs, { Tab, TabList, TabPanel, TabPanels } from "../../atoms/home/tabs";
+import DropDown from "../../atoms/common/dropdown";
+import Layout from "../../atoms/common/layout";
+import Panel from "../../atoms/common/panel";
+import Tabs, {
+  Tab,
+  TabList,
+  TabPanel,
+  TabPanels,
+} from "../../atoms/common/tabs";
+import QuestionEditor from "../../organisms/edit/questionEditor";
 
 const HomeTemplate = () => {
   return (
@@ -13,25 +19,7 @@ const HomeTemplate = () => {
         </TabList>
         <TabPanels>
           <TabPanel index={0}>
-            <PanelCap>Cap</PanelCap>
-            <Panel>
-              <PanelHeader>
-                header
-                <DropDown
-                  options={[
-                    { label: <div>1</div>, value: "1" },
-                    { label: <div>2</div>, value: "2" },
-                    { label: <div>3</div>, value: "3" },
-                    { label: <div>4</div>, value: "4" },
-                    { label: <div>5</div>, value: "5" },
-                  ]}
-                  placeholder={"Placeholder"}
-                  onChange={(value) => {
-                    console.log(value);
-                  }}
-                />
-              </PanelHeader>
-            </Panel>
+            <QuestionEditor />
           </TabPanel>
           <TabPanel index={1}>Panel 2</TabPanel>
         </TabPanels>
