@@ -44,7 +44,7 @@ export const Tab = (props: TabProps) => {
     <button
       className={cn("border-b-3 p-14", {
         "text-main border-main": activeTab === index,
-        "border-transparent text-gray-500": activeTab !== index,
+        "border-transparent text-gray500": activeTab !== index,
       })}
       onClick={handleActiveTab}
     >

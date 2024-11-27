@@ -44,7 +44,7 @@ export const PanelFooter = (props: PropsWithChildren) => {
 
   return (
     <>
-      <br className={"mb-20 border-gray-100 "} />
+      <br className={"mb-20 border-gray100 "} />
       <footer>{children}</footer>;
     </>
   );

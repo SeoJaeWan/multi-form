@@ -5,7 +5,7 @@ const Layout = (props: PropsWithChildren) => {
 
   return (
     <div className={"w-full h-full flex justify-center bg-bg"}>
-      <main className={"max-w-[655px] w-full bg-white"}>{children}</main>
+      <main className={"max-w-[655px] w-full"}>{children}</main>
     </div>
   );
 };
